@@ -28,7 +28,7 @@ public class CustomerController {
 
     @GetMapping
     public ModelAndView listCustomers() {
-        ModelAndView modelAndView = new ModelAndView("/customer/list");
+        ModelAndView modelAndView = new ModelAndView("customer/list");
         Iterable<Customer> customers = customerService.findAll();
         modelAndView.addObject("customers", customers);
         return modelAndView;
@@ -36,7 +36,7 @@ public class CustomerController {
 
     @GetMapping("/create")
     public ModelAndView createForm() {
-        ModelAndView modelAndView = new ModelAndView("/customer/create");
+        ModelAndView modelAndView = new ModelAndView("customer/create");
         modelAndView.addObject("customer", new Customer());
         return modelAndView;
     }
@@ -53,7 +53,7 @@ public class CustomerController {
     public ModelAndView updateForm(@PathVariable Long id) {
         Optional<Customer> customer = customerService.findById(id);
         if (customer.isPresent()) {
-            ModelAndView modelAndView = new ModelAndView("/customer/update");
+            ModelAndView modelAndView = new ModelAndView("customer/update");
             modelAndView.addObject("customer", customer.get());
             return modelAndView;
         } else {
