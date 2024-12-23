@@ -117,10 +117,10 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
     }
 
     // Formatters
-    @Override
-    public void addFormatters(FormatterRegistry registry) {
-        registry.addFormatter(new ProvinceFormatter(applicationContext.getBean(ProvinceService.class)));
-    }
+//    @Override
+//    public void addFormatters(FormatterRegistry registry) {
+//        registry.addFormatter(new ProvinceFormatter(applicationContext.getBean(ProvinceService.class)));
+//    }
 
     // DI
 

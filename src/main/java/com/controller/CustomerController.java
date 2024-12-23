@@ -32,7 +32,7 @@ public class CustomerController {
 
     @GetMapping
     public ModelAndView listCustomers(
-            @PageableDefault(size = 3, sort = "firstName", direction = Sort.Direction.DESC) Pageable pageable,
+            @PageableDefault(size = 3, sort = "firstName", direction = Sort.Direction.ASC) Pageable pageable,
             @RequestParam("search") Optional<String> search) {
         Page<Customer> customers;
 

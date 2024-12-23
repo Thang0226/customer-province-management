@@ -45,8 +45,8 @@ public class ProvinceController {
     }
 
     @GetMapping("/update/{id}")
-    public ModelAndView updateForm(@PathVariable Optional<Province> province) {
-//        Optional<Province> province = provinceService.findById(id);
+    public ModelAndView updateForm(@PathVariable Long id) {
+        Optional<Province> province = provinceService.findById(id);
         if (province.isPresent()) {
             ModelAndView modelAndView = new ModelAndView("province/update");
             modelAndView.addObject("province", province.get());

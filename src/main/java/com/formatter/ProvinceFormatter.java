@@ -21,12 +21,14 @@ public class ProvinceFormatter implements Formatter<Province> {     // Province 
 
     @Override
     public Province parse(String idText, Locale locale) {
-        Optional<Province> provinceOptional = provinceService.findById(Long.parseLong(idText));
-        return provinceOptional.orElse(null);
+//        Optional<Province> provinceOptional = provinceService.findById(Long.parseLong(idText));
+//        return provinceOptional.orElse(null);
+        return null;
     }
 
     @Override
     public String print(Province object, Locale locale) {
-        return "[" + object.getId() + ", " + object.getName() + "]";
+//        return "[" + object.getId() + ", " + object.getName() + "]";
+        return null;
     }
 }
