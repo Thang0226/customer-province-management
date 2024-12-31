@@ -50,9 +50,6 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public Page<Customer> findAllByFirstNameContaining(Pageable pageable, String name) {
-//        String sortField = "firstName"; // Or any field the user specifies
-//        Sort.Direction direction = Sort.Direction.ASC; // Or Sort.Direction.DESC
-//        pageable = PageRequest.of(0, 10, Sort.by(direction, sortField));
         return customerRepository.findAllByFirstNameContaining(pageable, name);
     }
 }

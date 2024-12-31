@@ -4,14 +4,14 @@
   <title>List Province</title>
 </head>
 <body>
-<h3>Provinces</h3>
+<h3 th:text="#{provinces.title}">Provinces</h3>
 <p>
-  <a th:href="@{/provinces/create}">
+  <a th:href="@{/provinces/create}" th:text="#{provinces.create}">
     Add new province
   </a>
 </p>
 <p>
-  <a th:href="@{/customers}">
+  <a th:href="@{/customers}" th:text="#{customers.title}">
     Customers
   </a>
 </p>
@@ -21,19 +21,19 @@
   </div>
 </div>
 
-<table id = "customers">
+<table id = "list">
   <thead>
   <tr>
-    <th>STT</th>
-    <th>Name</th>
-    <th>Update</th>
+    <th th:text="#{provinces.number}">No.</th>
+    <th th:text="#{provinces.name}">Name</th>
+    <th th:text="#{provinces.update}">Update</th>
   </tr>
   </thead>
   <tbody>
   <tr th:each="p, pStatus : ${provinces}">
     <td th:text="${pStatus.count}"></td>
     <td><a th:href="@{/provinces/view-province/{id}(id=${p.getId()})}" th:text="${p.getName()}"></a></td>
-    <td><a th:href="@{/provinces/update/{id}(id=${p.getId()})}">update</a></td>
+    <td><a th:href="@{/provinces/update/{id}(id=${p.getId()})}" th:text="#{provinces.update}">update</a></td>
   </tr>
   </tbody>
 </table>

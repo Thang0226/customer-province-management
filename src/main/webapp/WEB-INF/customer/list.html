@@ -4,14 +4,14 @@
     <title>List Customer</title>
 </head>
 <body>
-<h3>Customers</h3>
+<h3 th:text="#{customers.title}">Customers</h3>
 <p>
-    <a th:href="@{/customers/create}">
+    <a th:href="@{/customers/create}" th:text="#{customers.create}">
         Add new customer
     </a>
 </p>
 <p>
-    <a th:href="@{/provinces}">
+    <a th:href="@{/provinces}" th:text="#{customers.provinces}">
         Provinces
     </a>
 </p>
@@ -24,19 +24,19 @@
 <div style="margin-bottom: 10px; margin-left: 110px">
     <form th:action="@{/customers}" method="get">
         <label><input type="text" name="search"></label>
-        <button type="submit" class="btn btn-success">Search By First Name</button>
+        <button type="submit" class="btn btn-success" th:value="#{customers.search}">Search By First Name</button>
     </form>
 </div>
 
-<table id = "customers">
+<table id = "list">
     <thead>
     <tr>
-        <th>STT</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Province</th>
-        <th>Update</th>
-        <th>Delete</th>
+        <th th:text="#{customers.number}">No.</th>
+        <th th:text="#{customers.first_name}">First Name</th>
+        <th th:text="#{customers.last_name}">Last Name</th>
+        <th th:text="#{customers.province}">Province</th>
+        <th th:text="#{customers.update}">Update</th>
+        <th th:text="#{customers.delete}">Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -45,17 +45,17 @@
         <td th:text="${c.getFirstName()}"></td>
         <td th:text="${c.getLastName()}"></td>
         <td th:text="${c.getProvince().getName()}"></td>
-        <td><a th:href="@{/customers/update/{id}(id=${c.getId()})}">update</a></td>
-        <td><a th:href="@{/customers/delete/{id}(id=${c.getId()})}">delete</a></td>
+        <td><a th:href="@{/customers/update/{id}(id=${c.getId()})}" th:text="#{customers.update}">update</a></td>
+        <td><a th:href="@{/customers/delete/{id}(id=${c.getId()})}" th:text="#{customers.delete}">delete</a></td>
     </tr>
     </tbody>
 </table>
 
 <a class="btn btn-primary" th:if="${customers.hasPrevious()}"
-   th:href="@{/customers(page=${customers.number - 1})}">Previous</a>
+   th:href="@{/customers(page=${customers.number - 1})}" th:text="#{page.previous}">Previous</a>
 <span th:text="${customers.number + 1}"></span> | <span th:text="${customers.totalPages}"></span>
 <a class="btn btn-primary" th:if="${customers.hasNext()}"
-   th:href="@{/customers(page=${customers.number + 1})}">Next</a>
+   th:href="@{/customers(page=${customers.number + 1})}" th:text="#{page.next}">Next</a>
 
 <footer th:replace="/layout :: footer"></footer>
 </body>
